@@ -1385,14 +1385,18 @@ var render = function(time){
 					moveR = true;
 				if (moveR)
 					angle += 0.05;
-				else
-					angle -= 0.05;
+				else {
+          if (angle >= 0.05)
+					 angle -= 0.05;
+        }
 			}
 			if (padL) {
 				if (angle == 0.0)		
 					moveR = false;	
-				if (moveR)
-					angle -= 0.05;	
+				if (moveR) {
+          if (angle >= 0.05)
+					 angle -= 0.05;	
+        }
 				else
 					angle += 0.05;	
 			}
@@ -1503,16 +1507,16 @@ var render = function(time){
     //////////////////
 
     ctx.font = '20px joystix';
-    ctx.fillText("LEVEL:"+ curLevel, 150, 30);
-    ctx.fillText("LIVES:"+curLife, 150, 60);
-    ctx.fillText("SCORE:"+curScore, 150, 90);
+    ctx.fillText("LEVEL:"+ curLevel, 15, 30);
+    ctx.fillText("LIVES:"+curLife, 15, 60);
+    ctx.fillText("SCORE:"+curScore, 15, 90);
     if (highScore > 0)
-      ctx.fillText("High score:"+ highScore,150,120);
+      ctx.fillText("High score:"+ highScore,700,30);
 
     if (Math.floor(seconds) % 2 === 0 && !firstStart && (time > 4200))
     {
       ctx.font = '20px joystix';
-      ctx.fillText("Press the space bar to start game.", 480, 305); 
+      ctx.fillText("Press the space bar to start game.", 203, 305); 
 
     }
 
